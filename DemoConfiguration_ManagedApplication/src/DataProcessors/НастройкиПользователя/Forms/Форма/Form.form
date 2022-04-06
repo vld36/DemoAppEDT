@@ -209,10 +209,6 @@
         <segments>АгентПодключен</segments>
       </dataPath>
       <titleLocation>Right</titleLocation>
-      <handlers>
-        <event>OnChange</event>
-        <name>АгентПодключенПриИзменении</name>
-      </handlers>
       <extendedTooltip>
         <name>АгентПодключенРасширеннаяПодсказка</name>
         <id>17</id>
