@@ -144,11 +144,22 @@
 				<dcscom:periodType>Additional</dcscom:periodType>
 			</role>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Регион</dataPath>
+			<field>Регион</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регион</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	ВзаиморасчетыОстаткиИОбороты.Контрагент,
 	ВзаиморасчетыОстаткиИОбороты.Валюта,
-	ВзаиморасчетыОстаткиИОбороты.СуммаНачальныйОстаток, 
+	ВзаиморасчетыОстаткиИОбороты.Контрагент.Регион КАК Регион,
+	ВзаиморасчетыОстаткиИОбороты.СуммаНачальныйОстаток,
 	ВзаиморасчетыОстаткиИОбороты.СуммаКонечныйОстаток,
 	ВзаиморасчетыОстаткиИОбороты.СуммаОборот,
 	ВзаиморасчетыОстаткиИОбороты.СуммаПриход,
@@ -165,7 +176,7 @@
 	ВзаиморасчетыОстаткиИОбороты.ПериодПолугодие,
 	ВзаиморасчетыОстаткиИОбороты.ПериодГод
 ИЗ
-	РегистрНакопления.Взаиморасчеты.ОстаткиИОбороты(, , Авто, , ) КАК ВзаиморасчетыОстаткиИОбороты</query>
+	РегистрНакопления.Взаиморасчеты.ОстаткиИОбороты(,, Авто,,) КАК ВзаиморасчетыОстаткиИОбороты</query>
 	</dataSet>
 	<totalField>
 		<dataPath>СуммаКонечныйОстаток</dataPath>
@@ -290,18 +301,45 @@
 				<dcsset:userSettingID>cbc6ec0e-4db7-448b-9da4-e27eeacf6e9a</dcsset:userSettingID>
 			</dcsset:order>
 			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>Регистратор</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">25</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
 				<dcsset:viewMode>Normal</dcsset:viewMode>
 				<dcsset:userSettingID>7b81b967-cc1d-4339-b019-fef36ad83598</dcsset:userSettingID>
 			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
 			<dcsset:item xsi:type="dcsset:StructureItemTable">
 				<dcsset:column>
 					<dcsset:groupItems>
 						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Регион</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
 							<dcsset:field>Валюта</dcsset:field>
 							<dcsset:groupType>Items</dcsset:groupType>
 							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
-							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
-							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
 						</dcsset:item>
 					</dcsset:groupItems>
 					<dcsset:order>
